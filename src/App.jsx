@@ -48,7 +48,6 @@ function App() {
                 </div>
                 <Tutorial />
                 <Footer />
-
               </div>
             </>
           }

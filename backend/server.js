@@ -52,11 +52,22 @@ app.post("/subscribe", async (req, res) => {
             to: cleanEmail,
             from: process.env.SENDGRID_FROM_EMAIL,
             subject: "Welcome to DEV@Deakin!",
-            text: "Thank you for subscribing to our Daily Insider!"
+            text: "Welcome to DEV@Deakin! Thank you for subscribing to our Daily Insider. Stay tuned for updates, articles, and exciting news!",
+            html: `
+             <div style="font-family: Arial, sans-serif; padding: 20px;">
+                <h2>Welcome to DEV@Deakin!</h2>
+                <p>Thank you for subscribing to our Daily Insider.</p>
+                <p> You'll be able to stay connected with updates, articles, and exciting news from our community.
+                </p> <p>We're glad to have you with us!</p>
+                <strong>The DEV@Deakin Team</strong>
+            </div>
+            `
         };
 
         // Send email
-        await sgMail.send(message);
+        const [sendGridResponse] = await sgMail.send(message);
+
+        console.log("SendGrid Status Code:", sendGridResponse.statusCode);
 
         return res.status(200).json({
             success: true,
