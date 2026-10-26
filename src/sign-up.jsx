@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, db } from "./firebase";
 import { Link, useNavigate } from "react-router-dom";
-import { doc, setDoc } from "firebase/firestore";
 import { faUser as faUserSolid, faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Header from './header.jsx'
 import { faAddressCard } from '@fortawesome/free-regular-svg-icons';
 import { faKey } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,46 +18,49 @@ function SignUp() {
     async function handleSubmit(e) {
         e.preventDefault();
 
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        if (password.length < 8) {
+            alert("Password must contain at least 8 characters.");
+            return;
+        }
+
         try {
-            // Check if passwords match
-            if (password !== confirmPassword) {
-                throw new Error("Passwords do not match!");
+            const response = await fetch("http://localhost:3000/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    password
+                })
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                alert(result.message || "Registration failed.");
+                return;
             }
 
-            // Create account using Firebase Authentication
-            const userCredential = await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+            alert("Account created successfully! You can now log in.");
 
-            const user = userCredential.user;
-
-            // Update the user's display name
-            await updateProfile(user, {
-                displayName: name
-            });
-
-            // Store user details in Firestore
-            await setDoc(doc(db, "users", user.uid), {
-                name: name,
-                email: user.email
-            });
-
-            alert("Account created successfully!");
-
-            navigate("/");
+            navigate("/login");
 
         } catch (error) {
             console.error("Registration error:", error);
-            alert(error.message);
+            alert("Unable to connect to the server. Please try again.");
         }
     }
     return (
         <div>
             <div className="home">
-                <FontAwesomeIcon icon={faArrowLeftLong} className="left-arrow" />
-                <Link className="homepage" to="/"> Back to Homepage</Link>
+                <Header />
             </div>
             <form className="login" onSubmit={handleSubmit}>
                 <label className="sign-up-heading">

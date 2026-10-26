@@ -12,6 +12,7 @@ dist/
 .env
 backend/.env
 .env.*
+serviceAccountKey.json
 !.env.example
 dist-ssr
 *.local

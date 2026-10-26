@@ -85,6 +85,7 @@ p {
 
 }
 
+
 .login-button {
     display: flex;
     align-items: center;
@@ -97,10 +98,32 @@ p {
 
 .login-button:hover {
     border: 1px solid black;
-
+    
 }
 
 .login-button:active {
+    background-color: #7777773d;
+
+}
+.user-name {
+    
+}
+.logout-button {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    width: 80px;
+    height: 35px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.logout-button:hover {
+    border: 1px solid black;
+
+}
+
+.logout-button:active {
     background-color: #7777773d;
 
 }
@@ -544,18 +567,6 @@ p {
     cursor: pointer;
 }
 
-.home {
-    display: flex;
-    cursor: pointer;
-    background-color: rgba(48, 203, 220, 0.317);
-    width: 185px;
-    height: 50px;
-    padding-left: 10px;
-    padding-top: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
-    box-sizing: border-box;
-}
 
 .left-arrow {
     font-size: 20px;
