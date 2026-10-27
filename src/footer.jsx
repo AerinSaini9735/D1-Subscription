@@ -1,37 +1,35 @@
-import logo from './assets/Deakin.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquareFacebook, faSquareXTwitter, faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
 function Footer() {
     return (
         <footer>
             <div className="footer-column">
                 <div className="footer-column1">
-                    <h3 style={{ fontWeight: "bolder" }}>Explore</h3>
-                    <p>About Deakin</p>
-                    <p>Careers</p>
+                    <h2 style={{ fontWeight: "bolder" }}>Explore</h2>
+                    <p>Home</p>
+                    <p>Questions</p>
                     <p>Articles</p>
                     <p>Tutorials</p>
                 </div>
 
                 <div className="footer-column2">
-                    <h3>Connect With Us</h3>
-                    <p>Facebook</p>
-                    <p>Twitter</p>
-                    <p>Instagram</p>
-                </div>
-                <div className="footer-column3">
-                    <h3>Let Us Help You</h3>
-                    <p>Your Account</p>
-                    <p>Contact Us</p>
+                    <h2>Support</h2>
                     <p>FAQs</p>
                     <p>Help</p>
+                    <p>Contact Us</p>
+                </div>
+                <div className="footer-column3">
+                    <h2>Stay connected</h2>
+                    <div className='icons'>
+                    <FontAwesomeIcon icon={faSquareFacebook} />
+                    <FontAwesomeIcon icon={faSquareXTwitter} />
+                    <FontAwesomeIcon icon={faSquareInstagram} />
+                    </div>
                 </div>
             </div>
-
+            
             <div className="legal-block">
-                <img className="legal" src={logo} alt="Deakin logo" />
-                <div className="footer-language-block">
-                    <span className="language-footer">English</span>
-                    <span className="footer-scroll">&#9662;</span>
-                </div>
+                <h2>DEV@Deakin 2022</h2> 
             </div>
 
             <div className="legal-block2">
@@ -39,11 +37,6 @@ function Footer() {
                     <p>Privacy Policy</p>
                     <p>Terms and Conditions</p>
                     <p>Code of Conduct</p>
-                </div>
-
-                <div className="copyright">
-                    <span>&#169;</span>
-                    <span>2026 DEV@Deakin</span>
                 </div>
             </div>
         </footer>

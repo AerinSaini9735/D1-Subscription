@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 import Header from './header.jsx'
+import Pricing from "./pricing.jsx";
 import Project from './projects.jsx'
 import Photos from './photos.jsx'
 import Article from './article.jsx'
@@ -55,6 +56,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/Post" element={<Post />} />
+        <Route path="/pricing" element={<Pricing />} />
       </Routes>
 
     </BrowserRouter>

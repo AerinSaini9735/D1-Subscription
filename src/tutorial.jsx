@@ -19,8 +19,8 @@ function Tutorial() {
                         <img className="tutorial-image" src={tutorial2} alt="tutorial 2" />
                         <h3>React Tutorial</h3>
                         <h4><strong>Description:</strong>React tutorial from Begineer to Pro</h4>
-                        <p>eg. </p>
-                        <p>rating</p>
+                        <p>eg. React</p>
+                        <p>5 &#x2605; Pranav</p>
                     </div>
                 </div>
                 <div className="tutorial">

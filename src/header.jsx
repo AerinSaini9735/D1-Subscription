@@ -36,15 +36,17 @@ function Header() {
                 className="logo"
             />
 
-            <input
-                className="search-box"
-                type="text"
-                placeholder="Search"
-            />
+            <input className="search-box" type="text" placeholder="Search" />
 
             <div>
                 <p className="post-button" onClick={() => navigate("/post")}>
                     Post
+                </p>
+            </div>
+
+            <div>
+                <p className="pricing-button" onClick={() => navigate("/pricing")}>
+                    Pricing
                 </p>
             </div>
 
